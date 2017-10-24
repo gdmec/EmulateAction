@@ -72,8 +72,6 @@ public class ExampleInstrumentedTest {
         sleep(100);
         mDevice.swipe(200, 700, 200, 100, 100);
         sleep(100);
-        mDevice.swipe(200, 700, 200, 100, 100);
-        sleep(100);
         mDevice.findObject(new UiSelector().textStartsWith("安全")).clickAndWaitForNewWindow();
         mDevice.swipe(200, 600, 200, 200, 50);
         sleep(100);
