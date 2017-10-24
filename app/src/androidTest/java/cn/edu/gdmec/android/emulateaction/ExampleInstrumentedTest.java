@@ -2,6 +2,7 @@ package cn.edu.gdmec.android.emulateaction;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.RemoteException;
 import android.support.test.InstrumentationRegistry;
 import android.support.test.filters.SdkSuppress;
 import android.support.test.runner.AndroidJUnit4;
@@ -36,14 +37,19 @@ import static org.junit.Assert.*;
 public class ExampleInstrumentedTest {
     //设备实例
     private UiDevice mDevice;
+    private UiObject result;
 
     @Test
-    public void t1DisableDeviceManager() throws UiObjectNotFoundException, InterruptedException {
+    public void t1DisableDeviceManager() throws UiObjectNotFoundException, InterruptedException, RemoteException {
         // 初始化 UiDevice 实例
         mDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
+        //最近运行程序
+        mDevice.pressRecentApps();
+        result = mDevice.findObject(new UiSelector().textContains("全部清除"));
+        result.clickAndWaitForNewWindow();
         // 按home键，返回到主界面
         mDevice.pressHome();
-        UiObject result = mDevice.findObject(new UiSelector().textContains("设置"));
+        result = mDevice.findObject(new UiSelector().textContains("设置"));
         result.clickAndWaitForNewWindow();
         mDevice.swipe(200, 600, 200, 200, 50);
         sleep(500);
