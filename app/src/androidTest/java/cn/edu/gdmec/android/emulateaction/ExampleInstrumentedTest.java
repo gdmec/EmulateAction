@@ -61,6 +61,7 @@ public class ExampleInstrumentedTest {
         mDevice.pressHome();
         result = mDevice.findObject(new UiSelector().textContains("设置"));
         result.clickAndWaitForNewWindow();
+        sleep(500);
         mDevice.swipe(200, 700, 200, 100, 100);
         sleep(100);
         mDevice.swipe(200, 700, 200, 100, 100);
