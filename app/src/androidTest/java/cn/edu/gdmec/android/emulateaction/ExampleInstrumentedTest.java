@@ -45,6 +45,16 @@ public class ExampleInstrumentedTest {
         mDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
         //最近运行程序
         mDevice.pressRecentApps();
+        mDevice.swipe(200, 150, 200, 800, 20);
+        sleep(50);
+        mDevice.swipe(200, 150, 200, 800, 20);
+        sleep(50);
+        mDevice.swipe(200, 150, 200, 800, 20);
+        sleep(50);
+        mDevice.swipe(200, 150, 200, 800, 20);
+        sleep(50);
+        mDevice.swipe(200, 150, 200, 800, 20);
+        sleep(50);
         result = mDevice.findObject(new UiSelector().textContains("全部清除"));
         result.clickAndWaitForNewWindow();
         // 按home键，返回到主界面
