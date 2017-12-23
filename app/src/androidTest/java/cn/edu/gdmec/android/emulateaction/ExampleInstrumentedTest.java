@@ -46,15 +46,15 @@ public class ExampleInstrumentedTest {
         mDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
         //最近运行程序
         mDevice.pressRecentApps();
-        mDevice.swipe(200, 150, 200, 800, 20);
+        mDevice.swipe(200, 150, 200, 800, 40);
+        sleep(50);
+        mDevice.swipe(200, 150, 200, 800, 10);
         sleep(50);
         mDevice.swipe(200, 150, 200, 800, 20);
         sleep(50);
-        mDevice.swipe(200, 150, 200, 800, 20);
+        mDevice.swipe(200, 150, 200, 800, 30);
         sleep(50);
-        mDevice.swipe(200, 150, 200, 800, 20);
-        sleep(50);
-        mDevice.swipe(200, 150, 200, 800, 20);
+        mDevice.swipe(200, 150, 200, 800, 50);
         sleep(50);
         result = mDevice.findObject(new UiSelector().textContains("全部清除"));
         result.clickAndWaitForNewWindow();
@@ -112,5 +112,17 @@ public class ExampleInstrumentedTest {
             } catch(UiObjectNotFoundException e) {}
         }
     }
-
+    @Test
+    public void t2DeleteSms() throws UiObjectNotFoundException, InterruptedException {
+        // 初始化 UiDevice 实例
+        mDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
+        // 按home键，返回到主界面
+        mDevice.pressHome();
+        mDevice.click(120,780);
+        sleep(200);
+        mDevice.swipe(200,200,200,200,200);
+        mDevice.click(195,65);
+        result = mDevice.findObject(new UiSelector().textStartsWith("删除"));
+        result.clickAndWaitForNewWindow();
+    }
 }
