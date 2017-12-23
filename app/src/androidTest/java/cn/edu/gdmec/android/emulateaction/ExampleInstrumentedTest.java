@@ -112,7 +112,7 @@ public class ExampleInstrumentedTest {
             } catch(UiObjectNotFoundException e) {}
         }
     }
-    @Test
+    //@Test
     public void t2DeleteSms() throws UiObjectNotFoundException, InterruptedException {
         // 初始化 UiDevice 实例
         mDevice = UiDevice.getInstance(InstrumentationRegistry.getInstrumentation());
